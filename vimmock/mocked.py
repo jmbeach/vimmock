@@ -16,6 +16,9 @@ class BufferMock(object):
             raise TypeError("Index should be integer, not %s" % classname(key))
         return self._lines[key]
 
+    def __len__(self):
+        return len(self._lines)
+
     def __setitem__(self, key, value):
         if isinstance(key, slice):
             self._lines[key.start : key.stop : key.step] = value
